@@ -56,7 +56,7 @@
         </thead>
         {% for todo in todos %}
             <tr>
-                <td>
+                <td class="align-items-center">
                     {% if todo.completed == True %}
                         <span style="text-decoration: line-through">{{ todo.task }}</span>
                         <a class="btn" href="{% url 'edit' todo.id %}">
