@@ -114,10 +114,10 @@
 
 <div class="container mt-5">
 
-    <div class="container-fluid">
+    <div class="container-fluid shadow p-2 m-3 rounded">
         <form method="POST" class="d-flex">
             {% csrf_token %}
-            <input class="form-control  w-50" type="text" placeholder="What need to be done?" name="task">
+            <input class="form-control" type="text" placeholder="What need to be done" name="task">
             <button class="btn btn-lg btn-success shadow" type="submit">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                      class="bi bi-plus-lg" viewBox="0 0 16 16">
