@@ -54,21 +54,22 @@
 
 <div class="container mt-5">
     {% block content %}
-    <div class="">
-        <form method="POST">
-            {% csrf_token %}
-            <div class="">
-                <div class="">
-                    <input name="task" class="input" type="text" placeholder="{{ todo.task }}" value="{{ todo.task }}">
-                    <input name="completed" type="hidden" value="{{ todo.completed }}">
+        <div class="container">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="d-flex flex-row justify-content-centre align-items-center">
+                    <div class="">
+                        <input name="task" class="input" type="text" placeholder="{{ todo.task }}"
+                               value="{{ todo.task }}">
+                        <input name="completed" type="hidden" value="{{ todo.completed }}">
+                    </div>
+                    <div class="">
+                        <button type="submit" class="btn btn-outline-success">Save</button>
+                    </div>
                 </div>
-                <div class="">
-                    <button type="submit" class="btn btn-outline-success">Save</button>
-                </div>
-            </div>
-        </form>
-    </div>
-{% endblock %}
+            </form>
+        </div>
+    {% endblock %}
 </div>
 
 
