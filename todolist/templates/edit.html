@@ -22,7 +22,10 @@
     </nav>
 </header>
 
-<div class="container3">
+<div class="container mt-2">
+    <p>
+        space
+    </p>
 </div>
 
 <div class="container mt-5">
@@ -31,19 +34,19 @@
     </h1>
 </div>
 
-<div class="container mt-5">
+<div class="container mt-3 ">
     {% block content %}
         <div class="container">
             <form method="POST">
                 {% csrf_token %}
-                <div class="d-flex flex-row justify-content-centre align-items-center">
-                    <div class="">
+                <div class=" d-flex flex-row justify-content-centre align-items-center">
+                    <div class="m-1">
                         <input name="task" class="input" type="text" placeholder="{{ todo.task }}"
                                value="{{ todo.task }}">
                         <input name="completed" type="hidden" value="{{ todo.completed }}">
                     </div>
-                    <div class="">
-                        <button type="submit" class="btn btn-outline-success">Save</button>
+                    <div class="m-1">
+                        <button type="submit" class="btn btn-success shadow">Save</button>
                     </div>
                 </div>
             </form>
