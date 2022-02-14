@@ -12,10 +12,10 @@ def home(request):
             form.save()
             todos = Todo.objects.all()
             messages.success(request, ('Task has been added!'))
-            return render(request, 'index.html', {'todos': todos})
+            return render(request, 'todolist/index.html', {'todos': todos})
     else:
         todos = Todo.objects.all()
-        return render(request, 'index.html', {'todos': todos})
+        return render(request, 'todolist/index.html', {'todos': todos})
 
 
 def delete(request, todo_id):
@@ -50,4 +50,6 @@ def edit(request, todo_id):
             return redirect('home')
     else:
         todo = Todo.objects.get(id=todo_id)
-        return render(request, 'edit.html', {'todo': todo})
+        return render(request, 'todolist/edit.html', {'todo': todo})
+
+
