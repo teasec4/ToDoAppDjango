@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+
+    {% if user.is_authenticated %}
+
+        <div class="container mt-5 text-center">
+            <h1><span class="display-6">Hi,</span> {{ user.username }}!</h1>
+        </div>
+
+        <div class="container mt-5 text-center">
+
+            <a class="btn btn-outline-primary btn-lg" href="{% url 'work_space' %}">
+                get started
+            </a>
+        </div>
+
+
+    {% else %}
+
+        <div class="container mt-5 text-center">
+        <h1 class="display-3">
+            Welcome!
+        </h1>
+
+        </div>
+        <div class="container mt-5 text-center mb-5">
+            <p class="fs-4 lead text-secondary mb-4 border-top pt-3">You are not logged in</p>
+            <a class="btn btn-lg btn-outline-success m-3" href="{% url 'login' %}">Log In</a>
+
+            <a class="btn btn-lg btn-outline-secondary m-3" href="{% url 'signup' %}">Sign up</a>
+        </div>
+
+    {% endif %}
+
+{% endblock %}
