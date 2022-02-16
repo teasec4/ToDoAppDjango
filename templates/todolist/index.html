@@ -86,21 +86,19 @@
 
 
         <!-- add tasks  -->
-        <div class="container mt-3 mb-5 ">
-        <div class="container-fluid  ">
-            <form method="POST" class="d-flex align-items-center">
+       <div class="container mt-3 mb-5 ">
+        <div class="container-fluid shadow p-1 rounded">
+            <form method="POST" class="d-flex">
                 {% csrf_token %}
-                <div class="bg-success d-flex p-1 rounded m-1">
-                    <input class="form-control " type="text" placeholder="What need to be done" name="task">
-                </div>
-                <div class="m-1 shadow ">
+                <input class="form-control " type="text" placeholder="What need to be done" name="task">
+
                     <button class="btn btn-lg btn-outline-success" type="submit">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-check2" viewBox="0 0 16 16">
                         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
                     </svg>
-                    </button>
-                </div>
+                </button>
+
 
             </form>
         </div>
