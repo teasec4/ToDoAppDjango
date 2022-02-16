@@ -14,74 +14,65 @@
         </div>
         <!-- content -->
         <div class="container">
-            <div>
-                {% if messages %}
-                    {% for message in messages %}
-                        <div class="position-fixed bottom-0 end-0 p-3">
-                            <div class="" role="alert" aria-live="assertive" aria-atomic="true"
-                                 data-bs-autohide="false">
-                                <div class="d-flex">
-                                    <div class="toast-body">
-                                        {{ message }}
-                                    </div>
+        <div>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="position-fixed bottom-0 end-0 p-3">
+                        <div class="" role="alert" aria-live="assertive" aria-atomic="true"
+                             data-bs-autohide="false">
+                            <div class="d-flex">
+                                <div class="toast-body">
+                                    {{ message }}
                                 </div>
                             </div>
                         </div>
-                    {% endfor %}
-                {% endif %}
-            </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
 
 
-            <div class="mt-2 mb-2">
-                {% for todo in todos %}
-                    <div class="row g-3">
+        <div class=" mt-2 mb-2">
+            {% for todo in todos %}
+                <div class="container mt-1 d-flex justify-content-between border-bottom">
+                    <div class="d-flex flex-row align-items-center">
                         {% if todo.completed == True %}
-                            <div class="col-1">
-                                <a class="m-1 btn" href="{% url 'mark_incomplete' todo.id %}">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                         class="bi bi-patch-check text-success" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd"
-                                              d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                                        <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z"/>
-                                    </svg>
-                                </a>
-                            </div>
-                            <div class="col-9">
-                                <a class="m-1 text-success btn" style="text-decoration: line-through"
-                                   href="{% url 'mark_incomplete' todo.id %}">
-                                    <span class="lead ">{{ todo.task }}</span>
-                                </a>
-                            </div>
-
+                            <a class="m-1 btn" href="{% url 'mark_incomplete' todo.id %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                     class="bi bi-patch-check text-success" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                          d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                    <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z"/>
+                                </svg>
+                            </a>
+                            <a class="m-1 text-success btn" style="text-decoration: line-through"
+                               href="{% url 'mark_incomplete' todo.id %}">
+                                <span class="lead ">{{ todo.task }}</span>
+                            </a>
 
                         {% else %}
-                            <div class="col-1">
-                                <a class="m-1 btn" href="{% url 'mark_complete' todo.id %}">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                         class="bi bi-patch-minus" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd"
-                                              d="M5.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
-                                        <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z"/>
-                                    </svg>
-                                </a>
-                            </div>
-                            <div class="col-9">
-                                <a class="m-1  btn" href="{% url 'mark_complete' todo.id %}">
-                                    <span class="lead">{{ todo.task }}</span>
-                                </a>
-                            </div>
-
-                            <!--
-                                <a class="btn m-1" href="{% url 'edit' todo.id %}">
+                            <a class="m-1 btn" href="{% url 'mark_complete' todo.id %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                     class="bi bi-patch-minus" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                          d="M5.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z"/>
+                                    <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z"/>
+                                </svg>
+                            </a>
+                            <a class="m-1  btn" href="{% url 'mark_complete' todo.id %}">
+                                <span class="lead">{{ todo.task }}</span>
+                            </a>
+                            <!-- <a class="btn m-1" href="{% url 'edit' todo.id %}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                          class="bi bi-pen" viewBox="0 0 16 16">
                                         <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
                                     </svg>
                                 </a>
-                                -->
+                                    -->
+
                         {% endif %}
                     </div>
-                    <div class="col-2">
+                    <div class="d-flex align-items-center">
                         <a class="btn" href="{% url 'delete' todo.id %}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                                  class="bi bi-trash3" viewBox="0 0 16 16">
@@ -89,8 +80,8 @@
                             </svg>
                         </a>
                     </div>
-                    </div>
-                {% endfor %}
+                </div>
+            {% endfor %}
         </div>
 
 
