@@ -47,7 +47,7 @@
                                 </a>
                                 <a class="m-1 text-success btn" style="text-decoration: line-through"
                                    href="{% url 'mark_incomplete' todo.id %}">
-                                    <span class="fs-3 ">{{ todo.task }}</span>
+                                    <span class="lead ">{{ todo.task }}</span>
                                 </a>
 
                             {% else %}
@@ -60,7 +60,7 @@
                                     </svg>
                                 </a>
                                 <a class="m-1  btn" href="{% url 'mark_complete' todo.id %}">
-                                    <span class="fs-3">{{ todo.task }}</span>
+                                    <span class="lead">{{ todo.task }}</span>
                                 </a>
                                 <a class="btn m-1" href="{% url 'edit' todo.id %}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
